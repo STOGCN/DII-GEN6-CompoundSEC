@@ -1,0 +1,26 @@
+import com.google.gson.Gson;
+
+class Person {
+    String name;
+    int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+
+public class GsonExample {
+    public static void main(String[] args) {
+        Gson gson = new Gson();
+        Person person = new Person("John", 25);
+
+        // แปลง Java Object เป็น JSON
+        String json = gson.toJson(person);
+        System.out.println("JSON: " + json);
+
+        // แปลง JSON กลับเป็น Java Object
+        Person newPerson = gson.fromJson(json, Person.class);
+        System.out.println("Person Name: " + newPerson.name);
+    }
+}
